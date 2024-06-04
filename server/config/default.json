@@ -1,0 +1,5 @@
+{
+    "PORT": "8591",
+    "DB_URL": "mongodb+srv://suhail:vn8hq7DI0jowPIVX@payments.tey1gsx.mongodb.net/notes",
+    "SESSION": "SUHAIL"
+}
