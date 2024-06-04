@@ -1,0 +1,71 @@
+/* Notes.css */
+
+.notes-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notes-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.notes-container .ant-btn {
+    display: block;
+    margin: 10px auto;
+}
+
+.notes-container .ant-list-item {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.notes-container .ant-list-item-meta-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.notes-container .ant-list-item-meta-description {
+    font-size: 1em;
+}
+
+.notes-container .ant-modal-footer {
+    display: none;
+}
+
+.notes-container .ant-modal-content {
+    border-radius: 10px;
+}
+
+.notes-container .ant-modal-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.notes-container .ant-form-item {
+    margin-bottom: 10px;
+}
+
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #ff7875;
+}

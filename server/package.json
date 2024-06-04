@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js || nodemon app.js"
+  },
+  "keywords": [
+    "noetsApp",
+    "secureU",
+    "task",
+    "assignment"
+  ],
+  "author": "Suhail Roushan",
+  "license": "ISC",
+  "description": "Develop a simple SaaS application backend that allows users to register, log in, and manage a personal notes system",
+  "dependencies": {
+    "autocannon": "^7.15.0",
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.11",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.4.1"
+  }
+}
