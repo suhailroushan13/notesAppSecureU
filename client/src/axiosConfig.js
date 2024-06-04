@@ -9,6 +9,8 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
     (config) => {
         const sessionId = Cookies.get('session_id');
+        console.log(sessionId);
+
         if (sessionId) {
             config.headers['Authorization'] = `Bearer ${sessionId}`;
         }

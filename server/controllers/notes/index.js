@@ -1,16 +1,14 @@
 import express from "express";
-import mongoose from "mongoose";
 import { noteModel } from "../../models/User.js"; // Adjust the path as necessary
 
 const router = express.Router();
 
 // Middleware to authenticate and set user session ID
 const authenticate = (req, res, next) => {
-    if (req.session && req.session.userId) {
-        next();
-    } else {
-        res.status(401).json({ msg: "Unauthorized" });
+    if (!req.session.userId) {
+        return res.status(401).json({ msg: "Unauthorized" });
     }
+    next();
 };
 
 // Get all notes for the logged-in user

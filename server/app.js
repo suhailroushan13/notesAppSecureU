@@ -60,8 +60,8 @@ if (cluster.isPrimary) {
     app.use(session({
         secret: SESSION,
         resave: false,
-        saveUninitialized: true,
-        cookie: { maxAge, httpOnly: true, secure: true }, // Set secure to true
+        saveUninitialized: false,
+        cookie: { secure: false }, // Set secure to true
         store: MongoStore.create({
             mongoUrl: config.get("DB_URL"),
             collectionName: 'sessions'
@@ -73,6 +73,11 @@ if (cluster.isPrimary) {
     // Routes
     app.use("/api/user", userRouter);
     app.use("/api/notes", notesRouter);
+
+    app.get("/check-session", (req, res) => {
+        console.log("Session ID:", req.session.id);
+        res.send("Session checked");
+    });
 
 
 

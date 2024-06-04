@@ -22,7 +22,8 @@ const Notes = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await axios.get(`${URL}/api/notes/notes`);
+            const response = await axios.get(`${URL}/api/notes/notes`, { withCredentials: true });
+            console.log(`${URL}/api/notes/notes`);
             console.log(response.data); // Log the response data
             setNotes(response.data);
         } catch (error) {
@@ -30,9 +31,10 @@ const Notes = () => {
                 message: 'Error Fetching Notes',
                 description: error.response?.data?.msg || 'An error occurred while fetching notes.',
             });
-            console.error('Error fetching notes:', error);
+            console.error('Error fetching notes:', error.response?.data?.msg);
         }
     };
+
 
     const addNote = async (values) => {
         try {

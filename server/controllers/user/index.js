@@ -73,13 +73,15 @@ router.post("/login", async (req, res) => {
         req.session.userId = user._id;
 
         // Set a cookie manually if needed
-        res.cookie('session_id', req.session.id, { httpOnly: true, secure: false }); // Adjust secure option as per your setup
+        res.cookie('session_id', req.session.id, { httpOnly: true, secure: false });
 
         res.json({ msg: "Login successful", session_id: req.session.id });
     } catch (error) {
         res.status(500).send(error.message);
     }
 });
+
+
 // Middleware to authenticate the user
 const authenticate = (req, res, next) => {
     if (!req.session.userId) {
