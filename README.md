@@ -22,7 +22,7 @@ npm start
 
 # Time Lapse Of Assignment Completion
 
-![Logo](![Logo](https://i.imgur.com/1nbDQau.png))
+![Logo](https://i.imgur.com/1nbDQau.png)
 
  - [YouTube](https://youtu.be/GCt9V_oNDN8)
 
