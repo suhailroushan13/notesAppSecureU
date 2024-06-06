@@ -7,6 +7,8 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import cluster from 'cluster';
 import os from 'os';
+import rateLimit from "express-rate-limit";
+
 
 import userRouter from "./controllers/user/index.js";
 import notesRouter from "./controllers/notes/index.js";
@@ -21,6 +23,12 @@ const app = express();
 const PORT = config.get("PORT");
 const SESSION = config.get("SESSION");
 const numCPUs = os.cpus().length;
+
+const limiter = rateLimit({
+    windowMs: 60 * 1000, // 1 minute
+    max: 100, // limit each IP to 5 requests per windowMs
+    message: "<h1>Too many requests from this IP, please try again later.</h1>",
+});
 
 if (cluster.isPrimary) {
     console.log(`Master ${process.pid} is running`);
@@ -39,6 +47,8 @@ if (cluster.isPrimary) {
     // Workers can share any TCP connection
     // In this case it is an HTTP server
     app.use(express.json());
+    app.use(limiter);
+
     app.use(cors({
         origin: 'https://notes.suhail.app', // your frontend domain
         credentials: true,

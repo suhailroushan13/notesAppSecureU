@@ -59,13 +59,13 @@
     top: 10px;
     right: 10px;
     padding: 10px 20px;
-    background-color: #ff4d4f;
-    color: white;
+    background-color: #ff4d4f !important;
+    color: white !important;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .logout-button:hover {
-    background-color: #ff7875;
+    background-color: #ff7875 !important;
 }

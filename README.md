@@ -20,7 +20,23 @@ npm install
 npm start
 ```
 
-## User API Reference
+# Time Lapse Of Assignment Completion
+
+![Logo](![Logo](https://i.imgur.com/1nbDQau.png))
+
+ - [YouTube](https://youtu.be/GCt9V_oNDN8)
+
+
+
+
+
+# Postman API Signatures
+
+ - [Postman Collection](https://documenter.getpostman.com/view/18776436/2sA3QzaU2N)
+ - [Importable Collection File](https://files.suhail.app/)
+
+
+# User API Reference
 
 ### Register User
 
@@ -157,7 +173,7 @@ npm start
 
 ## Tech Stack
 
-**Client:** React, Ant Design, react-router-dom
+**Client:** React, Ant Design,
 
 **Server:** Node, Express, MongoDB
 

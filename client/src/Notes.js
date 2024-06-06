@@ -20,6 +20,23 @@ const Notes = () => {
         fetchNotes();
     }, []);
 
+
+    const convertToIST = (timestamp) => {
+        const options = {
+            timeZone: "Asia/Kolkata",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+        };
+        return new Date(timestamp).toLocaleString("en-US", options);
+    };
+
+    console.log(convertToIST("2024-06-06T01: 17: 44.979Z"));
+
+
     const fetchNotes = async () => {
         try {
             const response = await axios.get(`${URL}/api/notes/notes`, { withCredentials: true });
@@ -115,10 +132,8 @@ const Notes = () => {
     };
 
     const handleLogout = () => {
-        // Clear cookies
         Cookies.remove('session_id');
 
-        // Clear local storage and session storage
         localStorage.clear();
         sessionStorage.clear();
 
@@ -127,7 +142,6 @@ const Notes = () => {
             description: 'You have successfully logged out.',
         });
 
-        // Redirect to login page
         navigate('/login');
     };
 
@@ -144,17 +158,24 @@ const Notes = () => {
                     renderItem={note => (
                         <List.Item
                             actions={[
-                                <Button icon={<EditOutlined />} onClick={() => showModal(note)}>Edit</Button>,
+                                <Button type="primary" icon={<EditOutlined />} onClick={() => showModal(note)}>Edit</Button>,
                                 <Button icon={<DeleteOutlined />} onClick={() => deleteNote(note._id)} danger>Delete</Button>,
                             ]}
                         >
                             <List.Item.Meta
-                                title={note.title}
-                                description={note.description}
+                                title={<span><strong>Title:</strong> {note.title}</span>}
+                                description={
+                                    <>
+                                        <p><strong>Description:</strong> {note.description}</p>
+                                        <p><strong>Date:</strong> {new Date(note.created).toLocaleString()}</p>
+                                    </>
+                                }
                             />
+
                         </List.Item>
                     )}
                 />
+
                 <Modal
                     title={currentNote ? 'Edit Note' : 'Add Note'}
                     visible={visible}
